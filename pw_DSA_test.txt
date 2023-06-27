@@ -1,0 +1,94 @@
+solution 1
+
+
+package test_dsa;
+
+import java.util.Scanner;
+
+public class question_1 {
+	
+	public static int[] inputarr()
+	{
+		Scanner s= new Scanner(System.in);
+		System.out.println("Enter size of array");
+		int size = s.nextInt();
+		System.out.println("enter array elements");
+		int arr[]= new int[size];
+		for(int i=0; i<size; i++)
+		{
+			arr[i]= s.nextInt();
+		}
+		return arr;
+	}
+	
+	public static  int[] moveZerosToEnd(int arr[])
+	{
+		int count=0;
+		for(int i=0; i<arr.length; i++)
+		{
+			if(arr[i]!=0)
+			{
+				int temp= arr[i];
+				arr[i]= arr[count];
+				arr[count]= temp;
+				count++;
+			}
+		}
+		return arr;
+	}
+	
+	public static void main (String[] args )
+	{
+		int arr[]= inputarr();
+		int result[]= moveZerosToEnd(arr);
+		System.out.println("Resultant array -:");
+		for(int i=0; i<arr.length; i++)
+		{
+			System.out.print( result[i]);
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+Solution_2
+
+package test_dsa;
+
+public class question_2 {
+	
+	public static int firstUniqChar(String s) {
+
+        int index = -1;
+        int len = s.length();
+        int i = 0;
+
+        while(i < len){
+            char c = s.charAt(i);
+            int firstIndex = s.indexOf(c);
+            int lastIndex = s.lastIndexOf(c);
+            if(firstIndex == lastIndex){
+                index = i;
+                break;
+
+            }
+            i++;
+        }
+        return index;
+        
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int ans= firstUniqChar("leetcode");
+		System.out.println(ans);
+		
+	}
+
+}
